@@ -6,6 +6,9 @@ import "bufio"
 import "os"
 import "io"
 import "strconv"
+import "algorithms/bubblesort"
+import "algorithms/qsort"
+import "time"
 
 var infile *string = flag.String("i", "infile", "File contains values for sorting")
 var outfile *string = flag.String("o", "outfile", "File to receive sorted values")
@@ -48,6 +51,22 @@ func readValues(infile string) (values []int, err error) {
 	return
 }
 
+func writeValues(values []int , outfile string) error{
+	file , err := os.Create(outfile)
+	if err != nil{
+		fmt.Println("Failed to create the output file",outfile)
+		return err
+	}
+
+	defer file.Close()
+	for _,value := range values{
+		atr := strconv.Itoa(value)
+		file.WriteString(str + "\n")
+	}
+
+	return nil
+}
+
 func main() {
 	flag.Parse()
 	if infile != nil {
@@ -55,7 +74,22 @@ func main() {
 	}
 	values, err := readValues(*infile)
 	if err == nil {
-		fmt.Println("Read values:", values)
+		t1 := time.Now()
+
+		switch *algorithm{
+			case "qsort":
+				qsort.QuickSort(values)
+			case "bubblesort"
+				bubblesort.BubbleSort(values)
+			default:
+				fmt.Println("Sorting algorithm ", *algorithm,is either unknown or unsopported.)
+
+		}
+		t2 := time.Now()
+
+		fmt.Println("The sorting process costs", t2.Sub(t1),"to complete.")
+
+		writeValues(values,*outfile)
 	} else {
 		fmt.Println(err)
 	}

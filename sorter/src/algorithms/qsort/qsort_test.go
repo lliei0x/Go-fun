@@ -1,4 +1,4 @@
-package bubblesort
+package qsort
 
 import "testing"
 import "fmt"

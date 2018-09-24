@@ -13,7 +13,7 @@ var (
 	ErrorWrongCode = errors.New("http response code is wrong")
 )
 
-func Download(url string) (*goquery.Document, error) {
+func Downloader(url string) (*goquery.Document, error) {
 
 	var (
 		resp *http.Response

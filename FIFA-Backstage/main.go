@@ -11,6 +11,7 @@ func main() {
 	defer initiator.POSTGRES.Close()
 
 	// push data into db
+	PushDataToDb()
 
 	// start http server
 }
@@ -33,4 +34,9 @@ func CreateTable() {
 		&model.PlayersStatisticWithDisciplinary{},
 		&model.Admin{},
 	)
+}
+
+func PushDataToDb() {
+	// matches
+	// docs, err := download.Downloader(config.MatchesURL)
 }

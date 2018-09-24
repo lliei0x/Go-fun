@@ -7,21 +7,17 @@ import (
 )
 
 var (
-	MatchesURLGroupPhase          = "https://www.fifa.com/worldcup/matches/?#groupphase"
-	MatchesURLKnockOutPhase       = "https://www.fifa.com/worldcup/matches/?#knockoutphase"
+	MatchesURL                    = "https://www.fifa.com/worldcup/matches"
 	TeamsURL                      = "https://www.fifa.com/worldcup/teams/"
 	GroupsURL                     = "https://www.fifa.com/worldcup/groups/"
-	PlayersURL                    = "https://www.fifa.com/worldcup/players/browser/"
+	PlayersURL                    = "https://www.fifa.com/worldcup/players/browser/#player-by-position"
 	PlayersURLList                = "https://www.fifa.com/worldcup/players/_libraries/byposition/all/_players-list"
 	CoachesURL                    = "https://www.fifa.com/worldcup/players/coaches/"
 	StatisticsURL                 = "https://www.fifa.com/worldcup/statistics/"
+	StatisticsPlayerGoalScoredURL = "https://www.fifa.com/worldcup/statistics/players/goal-scored"
+	StatisticsPlayerShots         = "https://www.fifa.com/worldcup/statistics/players/shots"
 	StatisticsTeamGoalURL         = "https://www.fifa.com/worldcup/statistics/teams/goal-scored"
 	StatisticsTeamShots           = "https://www.fifa.com/worldcup/statistics/teams/shots"
-	StatisticsTeamDisciplinary    = "https://www.fifa.com/worldcup/statistics/teams/disciplinary"
-	StatisticsPlayerGoalScoredURL = "https://www.fifa.com/worldcup/statistics/players/goal-scored"
-	StatisticsPlayerSaves         = "https://www.fifa.com/worldcup/statistics/players/saves"
-	StatisticsPlayerShots         = "https://www.fifa.com/worldcup/statistics/players/shots"
-	StatisticsPlayerDisciplinary  = "https://www.fifa.com/worldcup/statistics/players/disciplinary"
 	AwardsURL                     = "https://www.fifa.com/worldcup/awards/"
 	HistoryURL                    = "https://www.fifa.com/worldcup/classic/"
 )
@@ -32,7 +28,7 @@ var (
 
 func init() {
 	viper.SetConfigName("config")
-	viper.AddConfigPath("../FIFA-Backstage/infra/config")
+	viper.AddConfigPath("../infra/config")
 	viper.SetConfigType("yaml")
 	err := viper.ReadInConfig()
 	if err != nil {

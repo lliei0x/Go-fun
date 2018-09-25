@@ -7,8 +7,8 @@ import (
 
 func main() {
 	// create table by gorm auto migrate
-	CreateTable()
-	defer initiator.POSTGRES.Close()
+	// CreateTable()
+	// defer initiator.POSTGRES.Close()
 
 	// push data into db
 	PushDataToDb()
@@ -26,12 +26,8 @@ func CreateTable() {
 		&model.Player{},
 		&model.WorldCupArchive{},
 		&model.TeamStatisticWithTopGoal{},
-		&model.TeamStatisticWithAttempts{},
-		&model.TeamStatisticWithDisciplinary{},
 		&model.PlayersStatisticWithGoalsScored{},
-		&model.PlayersStatisticWithTopSave{},
 		&model.PlayersStatisticWithShot{},
-		&model.PlayersStatisticWithDisciplinary{},
 		&model.Admin{},
 	)
 }

@@ -1,15 +1,17 @@
 package model
 
 import (
-	"github.com/jinzhu/gorm"
 	"time"
+
+	"github.com/jinzhu/gorm"
 )
 
-type WorldCupArchive struct {
+type Classic struct {
 	gorm.Model
 	URL         string `gorm:"type:varchar(128);column:world_cup_url"`
 	Name        string `gorm:"type:varchar(128);column:country_name"`
 	Year        string `gorm:"type:varchar(64);column:year"`
+	Image       string `gorm:"type:varchar(64);column:image"`
 	Winner      string `gorm:"type:varchar(64);column:winner_country"`
 	RunnersUp   string `gorm:"type:varChar(64);column:runners_up_name"`
 	Third       string `gorm:"type:varchar(64);column:third_name"`
@@ -18,7 +20,7 @@ type WorldCupArchive struct {
 	Title       string `gorm:"type:varchar(64);column:title"`
 }
 
-type WorldCupArchiveSerializer struct {
+type ClassicSerializer struct {
 	ID          uint       `json:"id"`
 	CreateAt    time.Time  `json:"create_at"`
 	UpdateAt    time.Time  `json:"update_at"`
@@ -26,6 +28,7 @@ type WorldCupArchiveSerializer struct {
 	URL         string     `json:"url"`
 	Name        string     `json:"name"`
 	Year        string     `json:"year"`
+	Image       string     `json:"image"`
 	Winner      string     `json:"winner"`
 	RunnersUp   string     `json:"runners_up"`
 	Third       string     `json:"third_name"`
@@ -34,20 +37,21 @@ type WorldCupArchiveSerializer struct {
 	Title       string     `json:"title"`
 }
 
-func (w *WorldCupArchive) Serializer() WorldCupArchiveSerializer {
-	return WorldCupArchiveSerializer{
-		ID:          w.ID,
-		CreateAt:    w.CreatedAt,
-		UpdateAt:    w.UpdatedAt,
-		DeleteAt:    w.DeletedAt,
-		URL:         w.URL,
-		Name:        w.Name,
-		Year:        w.Year,
-		Winner:      w.Winner,
-		RunnersUp:   w.RunnersUp,
-		Third:       w.Third,
-		Fourth:      w.Fourth,
-		FinalResult: w.FinalResult,
-		Title:       w.Title,
+func (c *Classic) Serializer() ClassicSerializer {
+	return ClassicSerializer{
+		ID:          c.ID,
+		CreateAt:    c.CreatedAt,
+		UpdateAt:    c.UpdatedAt,
+		DeleteAt:    c.DeletedAt,
+		URL:         c.URL,
+		Name:        c.Name,
+		Year:        c.Year,
+		Image:       c.Image,
+		Winner:      c.Winner,
+		RunnersUp:   c.RunnersUp,
+		Third:       c.Third,
+		Fourth:      c.Fourth,
+		FinalResult: c.FinalResult,
+		Title:       c.Title,
 	}
 }

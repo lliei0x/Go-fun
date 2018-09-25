@@ -12,14 +12,13 @@ var (
 	GroupsURL                     = "https://www.fifa.com/worldcup/groups/"
 	PlayersURL                    = "https://www.fifa.com/worldcup/players/browser/#player-by-position"
 	PlayersURLList                = "https://www.fifa.com/worldcup/players/_libraries/byposition/all/_players-list"
-	CoachesURL                    = "https://www.fifa.com/worldcup/players/coaches/"
 	StatisticsURL                 = "https://www.fifa.com/worldcup/statistics/"
 	StatisticsPlayerGoalScoredURL = "https://www.fifa.com/worldcup/statistics/players/goal-scored"
 	StatisticsPlayerShots         = "https://www.fifa.com/worldcup/statistics/players/shots"
 	StatisticsTeamGoalURL         = "https://www.fifa.com/worldcup/statistics/teams/goal-scored"
 	StatisticsTeamShots           = "https://www.fifa.com/worldcup/statistics/teams/shots"
 	AwardsURL                     = "https://www.fifa.com/worldcup/awards/"
-	HistoryURL                    = "https://www.fifa.com/worldcup/classic/"
+	ClassicURL                    = "https://www.fifa.com/worldcup/classic/"
 )
 
 var (

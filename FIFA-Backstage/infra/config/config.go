@@ -27,7 +27,7 @@ var (
 
 func init() {
 	viper.SetConfigName("config")
-	viper.AddConfigPath("../infra/config")
+	viper.AddConfigPath("./infra/config")
 	viper.SetConfigType("yaml")
 	err := viper.ReadInConfig()
 	if err != nil {

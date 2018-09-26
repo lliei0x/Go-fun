@@ -8,10 +8,7 @@ import (
 )
 
 var (
-	ErrDownloader      = errors.New("download html failed")
-	ErrSeleniumService = errors.New("selenium service failed")
-	ErrWebDriver       = errors.New("web driver failed")
-	ErrWebDriverGet    = errors.New("web driver get url failed")
+	ErrDownloader = errors.New("download html failed")
 )
 
 // Downloader get document by url

@@ -1,9 +1,7 @@
 
 *.html
 .idea
-tmp/
 debug
-docs/
 
 vendor/*
 !vendor/vendor.json

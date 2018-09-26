@@ -6,6 +6,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/adapter"
+	"leeif.me/Go-fun/FIFA-Backstage/infra/init"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/model"
 )
 
@@ -24,7 +25,10 @@ func PlayerStatisticsWithGoalsScored(doc *goquery.Document) {
 		playerGoalsScored.GoalsScoredRight, _ = strconv.Atoi(selection.Find("td.fi-table__td").Eq(6).Text())
 		playerGoalsScored.HeadedGoals, _ = strconv.Atoi(selection.Find("td.fi-table__td").Eq(7).Text())
 
-		log.Println(playerGoalsScored)
+		// log.Println(playerGoalsScored)
+		if err := initiator.POSTGRES.Create(&playerGoalsScored).Error; err != nil {
+			log.Printf("Get PlayerGoalsScored err: %v", err)
+		}
 	})
 }
 
@@ -41,7 +45,10 @@ func PlayersStatisticWithShot(doc *goquery.Document) {
 		playersShot.AttemptsOffTarget, _ = strconv.Atoi(selection.Find("td.fi-table__td").Eq(4).Text())
 		playersShot.ShotsBlocked, _ = strconv.Atoi(selection.Find("td.fi-table__td").Eq(5).Text())
 
-		log.Println(playersShot)
+		// log.Println(playersShot)
+		if err := initiator.POSTGRES.Create(&playersShot).Error; err != nil {
+			log.Printf("Get PlayersShot err: %v", err)
+		}
 	})
 }
 
@@ -59,6 +66,9 @@ func TeamStatisticWithTopGoal(doc *goquery.Document) {
 		teamTopGoal.OpenPlayGoals, _ = strconv.Atoi(selection.Find("td.fi-table__td").Eq(5).Find("span").Text())
 		teamTopGoal.SetPieceGoals, _ = strconv.Atoi(selection.Find("td.fi-table__td").Eq(6).Find("span").Text())
 
-		log.Println(teamTopGoal)
+		// log.Println(teamTopGoal)
+		if err := initiator.POSTGRES.Create(&teamTopGoal).Error; err != nil {
+			log.Printf("Get TeamTopGoal err: %v", err)
+		}
 	})
 }

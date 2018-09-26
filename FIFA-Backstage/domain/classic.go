@@ -4,11 +4,11 @@ import (
 	"log"
 	"strings"
 
-	"leeif.me/Go-fun/FIFA-Backstage/infra/config"
-
 	"github.com/PuerkitoBio/goquery"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/adapter"
+	"leeif.me/Go-fun/FIFA-Backstage/infra/config"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/download"
+	"leeif.me/Go-fun/FIFA-Backstage/infra/init"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/model"
 )
 
@@ -37,7 +37,10 @@ func Classic(doc *goquery.Document) {
 		classic.FinalResult = adapter.StringClear(worldCupInfo.Find("div.matches div.s-score.s-date-HHmm span").Text())
 		classic.Title = adapter.StringClear(worldCupInfo.Find("h1.title a").Text())
 
-		log.Println(classic)
+		// log.Println(classic)
+		if err := initiator.POSTGRES.Create(&classic).Error; err != nil {
+			log.Printf("Get Classic err: %v", err)
+		}
 
 		return true
 	})

@@ -5,6 +5,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/adapter"
+	"leeif.me/Go-fun/FIFA-Backstage/infra/init"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/model"
 )
 
@@ -19,9 +20,9 @@ func Teams(doc *goquery.Document) {
 
 		teams.Name = adapter.StringClear(selection.Find("div.fi-team-card__info div.fi-team-card__name").Text())
 
-		log.Println(teams)
-		// if err := initiator.POSTGRES.Create(&teams).Error; err != nil {
-		// 	log.Printf("Create teams Error: %v", err)
-		// }
+		// log.Println(teams)
+		if err := initiator.POSTGRES.Create(&teams).Error; err != nil {
+			log.Printf("Create Teams Error: %v", err)
+		} //插入爬取到的信息
 	})
 }

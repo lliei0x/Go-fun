@@ -11,13 +11,13 @@ type Classic struct {
 	URL         string `gorm:"type:varchar(128);column:world_cup_url"`
 	Name        string `gorm:"type:varchar(128);column:country_name"`
 	Year        string `gorm:"type:varchar(64);column:year"`
-	Image       string `gorm:"type:varchar(64);column:image"`
+	Image       string `gorm:"type:varchar(128);column:image"`
 	Winner      string `gorm:"type:varchar(64);column:winner_country"`
 	RunnersUp   string `gorm:"type:varChar(64);column:runners_up_name"`
 	Third       string `gorm:"type:varchar(64);column:third_name"`
 	Fourth      string `gorm:"type:varchar(64);column:fourth_name"`
 	FinalResult string `gorm:"type:varchar(128);column:final_result"`
-	Title       string `gorm:"type:varchar(64);column:title"`
+	Title       string `gorm:"type:varchar(128);column:title"`
 }
 
 type ClassicSerializer struct {

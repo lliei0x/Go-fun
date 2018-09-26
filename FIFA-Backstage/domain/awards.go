@@ -3,10 +3,10 @@ package domain
 import (
 	"log"
 
-	"leeif.me/Go-fun/FIFA-Backstage/infra/config"
-
 	"github.com/PuerkitoBio/goquery"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/adapter"
+	"leeif.me/Go-fun/FIFA-Backstage/infra/config"
+	"leeif.me/Go-fun/FIFA-Backstage/infra/init"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/model"
 )
 
@@ -21,6 +21,9 @@ func Awards(doc *goquery.Document) {
 		award.URL = adapter.StringClear(config.RootURL + awardURL)
 		award.Info = adapter.StringClear(selection.Find("div.fi-promo-alignement-left div.fi-promo__summary p").Text())
 
-		log.Println(award)
+		// log.Println(award)
+		if err := initiator.POSTGRES.Create(&award).Error; err != nil {
+			log.Printf("Get Award err: %v", err)
+		}
 	})
 }

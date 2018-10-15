@@ -6,7 +6,22 @@ import (
 	"leeif.me/Go-fun/FIFA-Backstage/infra/download"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/init"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/model"
+	_ "leeif.me/Go-test/gin-swagger/docs"
 )
+
+// @title Swagger Example API
+// @version 1.0
+// @description This is a sample server Petstore server.
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host
 
 func main() {
 	// create table by gorm auto migrate
@@ -15,8 +30,6 @@ func main() {
 
 	// push data into db
 	PushDataToDb()
-
-	// start http server
 }
 
 // CreateTable create table by gorm auto migrate
@@ -61,5 +74,4 @@ func PushDataToDb() {
 
 	doc, _ = download.Downloader(config.StatisticsPlayerShots)
 	domain.PlayersStatisticWithShot(doc)
-
 }

@@ -6,6 +6,7 @@ import (
 	"leeif.me/Go-fun/FIFA-Backstage/infra/download"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/init"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/model"
+	"leeif.me/Go-fun/FIFA-Backstage/ui/api-server"
 	_ "leeif.me/Go-test/gin-swagger/docs"
 )
 
@@ -29,7 +30,10 @@ func main() {
 	defer initiator.POSTGRES.Close()
 
 	// push data into db
-	PushDataToDb()
+	// PushDataToDb()
+
+	// start http server
+	api_server.New().Start()
 }
 
 // CreateTable create table by gorm auto migrate

@@ -1,13 +1,13 @@
 package main
 
 import (
+	_ "leeif.me/Go-fun/FIFA-Backstage/docs"
 	"leeif.me/Go-fun/FIFA-Backstage/domain"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/config"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/download"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/init"
 	"leeif.me/Go-fun/FIFA-Backstage/infra/model"
 	"leeif.me/Go-fun/FIFA-Backstage/ui/api-server"
-	_ "leeif.me/Go-test/gin-swagger/docs"
 )
 
 // @title Swagger Example API

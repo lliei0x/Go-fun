@@ -1,0 +1,62 @@
+definitions:
+  model.MatchSerializer:
+    properties:
+      country_left:
+        type: string
+      country_right:
+        type: string
+      create_at:
+        type: string
+      date:
+        type: string
+      delete_at:
+        type: string
+      group_name:
+        type: string
+      id:
+        type: integer
+      location:
+        type: string
+      match_number:
+        type: integer
+      score:
+        type: string
+      update_at:
+        type: string
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server Petstore server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /matches/:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: matchID
+        in: query
+        name: matchID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.MatchSerializer'
+            type: object
+      security:
+      - Bearer: []
+      summary: List Match
+      tags:
+      - Match
+swagger: "2.0"

@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"regexp"
 
+	"leeif.me/Go-fun/spider-training/library/utils/adpater"
+
 	"leeif.me/Go-fun/spider-training/infra/downloader"
 	"leeif.me/Go-fun/spider-training/infra/errors"
 )
@@ -46,8 +48,8 @@ func GetPiaofangRankInfo(url string) ([]PiaofangRankInfo, error) {
 		if len(submatch[1]) > 34 {
 			submatch[1] = submatch[1][34:len(submatch[1])]
 		}
-		fmt.Println(index, submatch[1])
-		rankList = append(rankList, submatch[1])
+		fmt.Println(index, adapter.StringClear(submatch[1]))
+		rankList = append(rankList, adapter.StringClear(submatch[1]))
 	}
 
 	var movieNameList []string

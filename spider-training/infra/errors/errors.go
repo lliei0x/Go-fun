@@ -12,10 +12,14 @@ func (e *ErrorCode) Error() string {
 }
 
 var (
-	ErrorRequest        = &ErrorCode{400, "http request fail "}
-	ErrorResponse       = &ErrorCode{400, "http response fail"}
-	ErrorStatusCode     = &ErrorCode{400, "http status code fail"}
-	ErrorPFangRankInfo  = &ErrorCode{400, "piao fang rank info fail"}
+	ErrorRequest    = &ErrorCode{400, "http request fail "}
+	ErrorResponse   = &ErrorCode{400, "http response fail"}
+	ErrorStatusCode = &ErrorCode{400, "http status code fail"}
+
+	ErrorPFangRankInfo         = &ErrorCode{400, "piao fang rank info fail"}
+	ErrorCboooRealTimeRankInfo = &ErrorCode{400, "cbooo real time rank info fail"}
+
+	ErrorNewDocument    = &ErrorCode{400, "new document fail"}
 	ErrorWebDriver      = &ErrorCode{400, "web driver fail"}
 	ErrorSelenium       = &ErrorCode{400, "selenium web driver fail"}
 	ErrorMaoYanRankList = &ErrorCode{400, "get mao yan data fail"}

@@ -10,7 +10,7 @@ var (
 	MaoYanURLByYear  = "https://piaofang.maoyan.com/rankings/year?year=%d&limit=100&tab=%d" // 正则表达式范例
 	CboRealTimeURL   = "http://www.cbooo.cn/realtime"
 	CboMoviesURL     = "http://www.cbooo.cn/movies"
-	CboRealURL       = "http://www.cbooo.cn/Mdata/getMdata_movie?area=%s&type=0&year=0&initial=全部&pIndex=%d"
+	CboRealURL       = "http://www.cbooo.cn/Mdata/getMdata_movie?area=%d&type=0&year=0&initial=全部&pIndex=%d"
 	CboRootURL       = "http://www.cbooo.cn/"
 	ChinaFilmURL     = "http://i.chinafilm.com/index/Movie/movielist"
 	ChinaFilmRealURL = "http://i.chinafilm.com/index/Movie/ajaxList"

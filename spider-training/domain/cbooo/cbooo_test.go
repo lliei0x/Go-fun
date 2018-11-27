@@ -24,3 +24,22 @@ func TestGetRealTimeRankInfo(t *testing.T) {
 		t.Log(realTimeRankInfo)
 	}
 }
+
+func TestGetMovieListCBOInfo(t *testing.T) {
+	tests := []struct {
+		url string
+		ok  bool
+	}{
+		{
+			url: url.CboMoviesURL,
+			ok:  false,
+		},
+	}
+	for _, test := range tests {
+		GetMovieListCBOInfo(test.url, test.ok)
+		// if err != nil {
+		// 	t.Error(err)
+		// }
+		// t.Log(areaList)
+	}
+}

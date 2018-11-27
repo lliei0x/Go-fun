@@ -1,7 +1,6 @@
 package downloader
 
 import (
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -17,14 +16,13 @@ func GetHttpResponse(url string, ok bool) ([]byte, error) {
 	if err != nil {
 		return nil, errors.ErrorRequest
 	}
-	request.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36")
+	// request.Header.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36")
 	client := http.DefaultClient
 	response, err := client.Do(request)
 	if err != nil {
 		return nil, errors.ErrorResponse
 	}
 	defer response.Body.Close()
-	fmt.Println(response.StatusCode)
 	if response.StatusCode <= 200 && response.StatusCode >= 300 {
 		return nil, errors.ErrorStatusCode
 	}

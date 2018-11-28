@@ -26,9 +26,9 @@ func getBody() map[string]string {
 }
 
 func GetChinaFilmResponse(url string) {
-	for index := 1; index < 17; index++ {
+	for index := 1; index < 2; index++ {
 		body := fmt.Sprintf("currentPage=" + strconv.Itoa(index) + "&numPages=10&pagerow=16&totalPages=5&filter_sel%5Bcls1%5D=none&filter_sel%5Bcls2%5D=none&order_sel=none")
-		response, err := downloader.PostHttpResponse(url, body, true)
+		response, err := downloader.PostHttpResponse(url, body, false)
 		if err != nil {
 			return
 		}

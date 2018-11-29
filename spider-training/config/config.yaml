@@ -1,7 +1,7 @@
 db:
-  dbname: "crawler_info"
+  dbname: "spider_info"
   host: "127.0.0.1"
   port: "5432"
-  user: "xiewei"
-  password: "admin"
+  user: "postgres"
+  password: "postgres"
   sslmode: "disable"

@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"strings"
 
+	"leeif.me/Go-fun/spider-training/infra/errors"
+
 	"golang.org/x/text/encoding/simplifiedchinese"
 	"golang.org/x/text/transform"
-
-	"leeif.me/Go-fun/spider-training/infra/errors"
 )
 
 // GetHttpResponse get response for http request

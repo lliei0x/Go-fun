@@ -22,8 +22,8 @@ func DBInit() {
 }
 
 func GetPostGreConfig() string {
-	viper.SetConfigName("settings")
-	viper.AddConfigPath("$GOPATH/src/Go-Spider/configs")
+	viper.SetConfigName("config")
+	viper.AddConfigPath("./config")
 	viper.SetConfigType("yaml")
 	err := viper.ReadInConfig()
 	if err != nil {

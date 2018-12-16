@@ -24,6 +24,6 @@
   - [x] viper 实现读取用户配置
   - [x] 数据库 使用 postgre
   - [x] goquery 实现网页解析
-  - [ ] gin 快速搭建 web server
-  - [ ] gin-swagger 自动化构建 API 文档
-  - [ ] jwt 认证，后台生成对应的 auth_token
+  - [x] gin 快速搭建 web server
+  - [x] gin-swagger 自动化构建 API 文档
+  - [x] jwt 认证，后台生成对应的 auth_token

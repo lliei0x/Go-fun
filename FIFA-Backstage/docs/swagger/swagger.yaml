@@ -1,4 +1,59 @@
 definitions:
+  admin.ListSignInParam:
+    properties:
+      admin:
+        properties:
+          name:
+            example: "18717711819"
+            type: string
+          password:
+            example: xxxxxx
+            type: string
+        required:
+        - name
+        - password
+        type: object
+    type: object
+  admin.ListSignUpParam:
+    properties:
+      admin:
+        properties:
+          name:
+            example: "18717711819"
+            type: string
+          password:
+            example: xxxxx
+            type: string
+          phone:
+            example: "18717711819"
+            type: string
+        required:
+        - name
+        - password
+        - phone
+        type: object
+    type: object
+  model.AdminSerializer:
+    properties:
+      auth_token:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      encrypted_password:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      phone:
+        type: string
+      state:
+        type: string
+      updated_at:
+        type: string
+    type: object
   model.MatchSerializer:
     properties:
       country_left:
@@ -37,7 +92,57 @@ info:
   title: Swagger Example API
   version: "1.0"
 paths:
-  /matches/:
+  /v1/api/admin/sign_in:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: sign in information
+        in: body
+        name: admin
+        required: true
+        schema:
+          $ref: '#/definitions/admin.ListSignInParam'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.AdminSerializer'
+            type: object
+      security:
+      - Bearer: []
+      summary: Find a count
+      tags:
+      - Admin
+  /v1/api/admin/sign_up:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: sign up information
+        in: body
+        name: admin
+        required: true
+        schema:
+          $ref: '#/definitions/admin.ListSignUpParam'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.AdminSerializer'
+            type: object
+      security:
+      - Bearer: []
+      summary: create a count
+      tags:
+      - Admin
+  /v1/api/matches/:
     get:
       consumes:
       - application/json

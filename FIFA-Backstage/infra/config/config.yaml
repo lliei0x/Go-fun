@@ -1,6 +1,6 @@
 ---
 db:
-  dbname: "postgres"
+  dbname: "fifa_data"
   host: "127.0.0.1"
   port: "5432"
   user: "postgres"

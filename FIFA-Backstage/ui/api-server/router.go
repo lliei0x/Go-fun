@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"leeif.me/Go-fun/FIFA-Backstage/ui/api-server/admin"
+	"leeif.me/Go-fun/FIFA-Backstage/ui/api-server/controller"
 	"leeif.me/Go-fun/FIFA-Backstage/ui/api-server/matches"
 
 	"github.com/gin-gonic/gin"
@@ -66,8 +68,11 @@ func APIServerInit(r *gin.Engine) {
 	})
 	v1 := r.Group("/v1/api")
 	indexRegistry(v1)
-	matchesRegistry(v1)
-
+	adminsRegistry(v1)
+	v1.Use(controller.AuthRequired())
+	{
+		matchesRegistry(v1)
+	}
 }
 
 func indexRegistry(r *gin.RouterGroup) {
@@ -81,6 +86,12 @@ func HelloWorld(c *gin.Context) {
 		gin.H{
 			"message": "Hello World! FIFA world Cup 2018"},
 	)
+}
+
+func adminsRegistry(r *gin.RouterGroup) {
+	r.POST("/admin/sign_in", admin.SignIn)
+	r.POST("/admin/sign_up", admin.SignUp)
+
 }
 
 func matchesRegistry(r *gin.RouterGroup) {

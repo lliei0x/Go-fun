@@ -21,7 +21,7 @@ var (
 // @Produce  json
 // @Param matchID query string false "matchID"
 // @Resource Match
-// @Router /matches/:matchID [get]
+// @Router /v1/api/matches/:matchID [get]
 // @Success 200 {object} model.MatchSerializer
 func HandlerGetMatchesByID(ctx *gin.Context) {
 	id := ctx.Param("matchID")

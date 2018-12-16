@@ -38,7 +38,9 @@ func main() {
 
 // CreateTable create table by gorm auto migrate
 func CreateTable() {
-	initiator.POSTGRES.AutoMigrate(&model.Match{},
+	initiator.POSTGRES.AutoMigrate(
+		&model.Admin{},
+		&model.Match{},
 		&model.Award{},
 		&model.Group{},
 		&model.Team{},

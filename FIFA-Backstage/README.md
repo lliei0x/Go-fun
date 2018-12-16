@@ -27,6 +27,6 @@ FIFA-Backstage
 - [x] viper 实现读取用户配置
 - [x] 数据库 使用 postgre
 - [x] goquery 实现网页解析
-- [ ] gin 快速搭建 web server
-- [ ] gin-swagger 自动化构建 API 文档
-- [ ] jwt 认证，后台生成对应的 auth_token
+- [X] gin 快速搭建 web server (只列举了部分实例，举一反三)
+- [X] gin-swagger 自动化构建 API 文档 (只列举了部分实例，举一反三)
+- [X] jwt 认证，后台生成对应的 auth_token
